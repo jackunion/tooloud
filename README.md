@@ -4,6 +4,7 @@ Collection of noise functions written in JavaScript
 
 ### Installation
 `npm install tooloud` or `git clone https://github.com/jackunion/tooloud`
+
 `var tooloud = require ('tooloud');` or `<script src="./tooloud/dist/tooloud.min.js"></script>`
 
 ```
