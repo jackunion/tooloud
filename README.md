@@ -17,7 +17,7 @@ tooloud.Fractal(x, y, z, octaves, noiseCallback);
 
 ### Using tooloud with canvas
 - [ ] TODO
-  - fillRect() vs ImageData [Pixel manipulation with canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas)
+  - fillRect() vs ImageData ([Pixel manipulation with canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas))
 
 # Noise
 
