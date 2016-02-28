@@ -8,13 +8,13 @@ Collection of noise functions written in JavaScript
 
 ```
 tooloud.Perlin.noise(x, y, z);
-tooloud.Simplex.noise(x, y, z);
+tooloud.Simplex.noise3D(x, y, z);
 tooloud.Worley.Euclidean(x, y, z, seed);
 tooloud.Worley.Manhattan(x, y, z, seed);
 tooloud.Fractal(x, y, z, octaves, noiseCallback);
 ```
 
-### Using tooloud with <canvas>
+### Using tooloud with canvas
 - [ ] TODO
   - fillRect() vs ImageData [Pixel manipulation with canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas)
 
