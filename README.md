@@ -31,8 +31,8 @@ tooloud.Fractal(x, y, z, octaves, noiseCallback);
 
 ## General
 
-- [Gradient noise on Wikipedia](https://en.wikipedia.org/wiki/Gradient_noise)
-- [Value noise on Wikipedia](https://en.wikipedia.org/wiki/Value_noise)
+- [Gradient noise](https://en.wikipedia.org/wiki/Gradient_noise) on Wikipedia
+- [Value noise](https://en.wikipedia.org/wiki/Value_noise) on Wikipedia
 - http://mrl.nyu.edu/~perlin/noise/
 - http://www.redblobgames.com/articles/noise/introduction.html
 - http://blogs.msdn.com/b/hemipteran/archive/2014/03/26/generating-noise-for-applications.aspx
@@ -40,20 +40,20 @@ tooloud.Fractal(x, y, z, octaves, noiseCallback);
 
 ## Perlin
 
-- [Perlin noise on Wikipedia](https://en.wikipedia.org/wiki/Perlin_noise)
+- [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise) on Wikipedia
 - http://asserttrue.blogspot.fi/2011/12/perlin-noise-in-javascript_31.html
 - http://asserttrue.blogspot.fi/2012/01/procedural-textures-in-html5-canvas.html
 - http://flafla2.github.io/2014/08/09/perlinnoise.html
 
 ## Simplex
 
-- [Simplex noise on Wikipedia](https://en.wikipedia.org/wiki/Simplex_noise)
+- [Simplex noise](https://en.wikipedia.org/wiki/Simplex_noise) on Wikipedia
 - http://www.csee.umbc.edu/~olano/s2002c36/ch02.pdf
 - https://briansharpe.wordpress.com/2012/01/13/simplex-noise/
 
 ## Worley
 
-- [Worley noise on Wikipedia](https://en.wikipedia.org/wiki/Worley_noise)
+- [Worley noise](https://en.wikipedia.org/wiki/Worley_noise) on Wikipedia
 - https://aftbit.com/cell-noise-2/
 - https://sharpnoise.codeplex.com/SourceControl/latest#SharpNoise/HTMLSharpNoise/Script/WorleyNoise.js
 
