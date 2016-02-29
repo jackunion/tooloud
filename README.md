@@ -3,9 +3,22 @@ Collection of noise functions written in JavaScript
 - [ ] improve webpack config
 
 ### Installation
-`npm install tooloud` or `git clone https://github.com/jackunion/tooloud`
 
-`var tooloud = require ('tooloud');` or `<script src="./tooloud/dist/tooloud.min.js"></script>`
+```
+npm install tooloud
+
+var tooloud = require ('tooloud');
+```
+
+or 
+
+```
+git clone https://github.com/jackunion/tooloud
+
+<script src="path/to/tooloud/dist/tooloud.min.js"></script>`
+```
+
+### Available noise functions
 
 ```
 tooloud.Perlin.noise(x, y, z);
