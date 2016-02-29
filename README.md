@@ -31,8 +31,8 @@ tooloud.Fractal(x, y, z, octaves, noiseCallback);
 
 ## General
 
-[Gradient noise on Wikipedia](https://en.wikipedia.org/wiki/Gradient_noise)
-[Value noise on Wikipedia](https://en.wikipedia.org/wiki/Value_noise)
+- [Gradient noise on Wikipedia](https://en.wikipedia.org/wiki/Gradient_noise)
+- [Value noise on Wikipedia](https://en.wikipedia.org/wiki/Value_noise)
 
 http://mrl.nyu.edu/~perlin/noise/
 
