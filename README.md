@@ -1,6 +1,5 @@
 # tooloud
 Collection of noise functions written in JavaScript
-- [ ] improve webpack config
 
 ### Installation
 `npm install tooloud`
