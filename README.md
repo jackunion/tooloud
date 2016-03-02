@@ -28,13 +28,35 @@ tooloud.Fractal(x, y, z, octaves, noiseCallback);
 ### Using tooloud with canvas
 
 ```javascript
+var tooloud = require('tooloud'); // omit if tooloud is included via the script tag
+
 var canvas = document.getElementById('canvas'),
     ctx = canvas.getContext('2d'),
+    imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight),
+    data = imageData.data;
     canvasWidth = 640,
     canvasHeight = 480;
 
 canvas.width = canvasWidth;
 canvas.height = canvasHeight;
+
+for (var i = 0; i < canvasWidth; i++) {
+    for (var j = 0; j < canvasHeight; j++) {
+
+        var index = (i + j * canvasWidth) * 4;
+        var x = 10 * (i / canvasWidth), 
+            y = 10 * (j / canvasHeight),
+            z = 0.8;
+        var n = tooloud.Perlin.noise(x, y, z);
+
+        data[index + 0] = Math.floor(255 * n);  // R
+        data[index + 1] = Math.floor(255 * n);  // G
+        data[index + 2] = Math.floor(255 * n);  // B
+        data[index + 3] = 255;                  // A
+    }
+}
+
+ctx.putImageData(imageData, 0, 0);
 ```
 
 - [ ] fillRect() vs ImageData ([Pixel manipulation with canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas))
