@@ -42,7 +42,6 @@ canvas.height = canvasHeight;
 
 for (var i = 0; i < canvasWidth; i++) {
     for (var j = 0; j < canvasHeight; j++) {
-
         var index = (i + j * canvasWidth) * 4;
         var x = 10 * (i / canvasWidth), 
             y = 10 * (j / canvasHeight),
@@ -67,7 +66,6 @@ ctx.putImageData(imageData, 0, 0);
 
 - [Gradient noise](https://en.wikipedia.org/wiki/Gradient_noise) on Wikipedia
 - [Value noise](https://en.wikipedia.org/wiki/Value_noise) on Wikipedia
-- http://mrl.nyu.edu/~perlin/noise/
 - http://www.redblobgames.com/articles/noise/introduction.html
 - http://blogs.msdn.com/b/hemipteran/archive/2014/03/26/generating-noise-for-applications.aspx
 - http://lodev.org/cgtutor/randomnoise.html
@@ -75,6 +73,7 @@ ctx.putImageData(imageData, 0, 0);
 ## Perlin
 
 - [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise) on Wikipedia
+- Original Java implementation of [Improved Perlin Noise](http://mrl.nyu.edu/~perlin/noise/)
 - http://asserttrue.blogspot.fi/2011/12/perlin-noise-in-javascript_31.html
 - http://asserttrue.blogspot.fi/2012/01/procedural-textures-in-html5-canvas.html
 - http://flafla2.github.io/2014/08/09/perlinnoise.html
@@ -89,7 +88,6 @@ ctx.putImageData(imageData, 0, 0);
 
 - [Worley noise](https://en.wikipedia.org/wiki/Worley_noise) on Wikipedia
 - https://aftbit.com/cell-noise-2/
-- https://sharpnoise.codeplex.com/SourceControl/latest#SharpNoise/HTMLSharpNoise/Script/WorleyNoise.js
 
 ## Fractal
 
