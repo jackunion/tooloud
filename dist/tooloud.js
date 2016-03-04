@@ -293,9 +293,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        var distanceArray = [9999999, 9999999, 9999999];
 
-	        var evalCubeX = parseInt(Math.floor(input.x)),
-	            evalCubeY = parseInt(Math.floor(input.y)),
-	            evalCubeZ = parseInt(Math.floor(input.z));
+	        var evalCubeX = Math.floor(input.x),
+	            evalCubeY = Math.floor(input.y),
+	            evalCubeZ = Math.floor(input.z);
 
 	        for (var i = -1; i < 2; ++i)
 	            for (var j = -1; j < 2; ++j)
