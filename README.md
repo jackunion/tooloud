@@ -60,6 +60,9 @@ ctx.putImageData(imageData, 0, 0);
 
 - [ ] fillRect() vs ImageData ([Pixel manipulation with canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas))
 
+##### Note on using tooloud.Worley
+- [ ] TODO
+
 # Noise
 
 ## General
@@ -73,7 +76,7 @@ ctx.putImageData(imageData, 0, 0);
 ## Perlin
 
 - [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise) on Wikipedia
-- Original Java implementation of [Improved Perlin Noise](http://mrl.nyu.edu/~perlin/noise/)
+- Original Java implementation of [Improved Perlin noise](http://mrl.nyu.edu/~perlin/noise/)
 - http://asserttrue.blogspot.fi/2011/12/perlin-noise-in-javascript_31.html
 - http://asserttrue.blogspot.fi/2012/01/procedural-textures-in-html5-canvas.html
 - http://flafla2.github.io/2014/08/09/perlinnoise.html
@@ -81,13 +84,15 @@ ctx.putImageData(imageData, 0, 0);
 ## Simplex
 
 - [Simplex noise](https://en.wikipedia.org/wiki/Simplex_noise) on Wikipedia
-- http://www.csee.umbc.edu/~olano/s2002c36/ch02.pdf
+- Original Java implementation of [Simplex noise](http://www.csee.umbc.edu/~olano/s2002c36/ch02.pdf) (Appendix B)
 - https://briansharpe.wordpress.com/2012/01/13/simplex-noise/
 
 ## Worley
 
 - [Worley noise](https://en.wikipedia.org/wiki/Worley_noise) on Wikipedia
-- https://aftbit.com/cell-noise-2/
+- An in depth [cell noise tutorial](https://aftbit.com/cell-noise-2/)
+- Steven Worley's article on cell noise: [A Cellular Texture Basis Function](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.95.412&rep=rep1&type=pdf)
+- Carl-Johan Rosén's paper on cell noise: [Cell Noise and Processing](http://www.carljohanrosen.com/share/CellNoiseAndProcessing.pdf)
 
 ## Fractal
 
