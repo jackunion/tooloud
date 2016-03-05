@@ -10,11 +10,11 @@ Collection of noise functions written in JavaScript
     - [Note on using tooloud.Fractal](#note-on-using-tooloudfractal)
   - [Examples](#examples)
 - [Noise](#noise)
-  -[General](#general)
-  -[Perlin](#perlin)
-  -[Simplex](#simplex)
-  -[Worley](#worley)
-  -[Fractal](#fractal)
+  - [General](#general)
+  - [Perlin](#perlin)
+  - [Simplex](#simplex)
+  - [Worley](#worley)
+  - [Fractal](#fractal)
 
 ### Installation
 
