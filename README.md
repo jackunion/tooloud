@@ -61,7 +61,7 @@ ctx.putImageData(imageData, 0, 0);
 - [ ] fillRect() vs ImageData ([Pixel manipulation with canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas))
 
 ##### Note on using tooloud.Worley
-Instead of returning a certain value, ```tooloud.Worley``` returns an array containing distances to three closest feature points. The idea behind this decision is simple: you can generate differenly looking textures by combining those distances (adding, multiplying or even using the second closest feature point for example).
+Instead of returning a certain value, ```tooloud.Worley``` returns an array containing distances to three closest feature points. The idea behind this decision is simple: you can generate differenly looking textures by combining those distances (adding, multiplying or using the second closest feature point for example).
 
 To use ```tooloud.Worley``` with canvas you just need to slightly change the way you assign your RGB values:
 
@@ -81,7 +81,14 @@ Consider these images:
 
 ![](/img/Worley/Euclidean/1.png) ![](/img/Worley/Euclidean/2.png) ![](/img/Worley/Euclidean/3.png) ![](/img/Worley/Euclidean/4.png)
 
-```Math.floor(255 * n[0])``` | ```Math.floor(255 * n[1])``` | ```Math.floor(255 * (n[1] - n[0]))``` | ```Math.floor(255 * (n[2] * n[0]))```
+In order of appearance:
+```Math.floor(255 * n[0])```
+
+```Math.floor(255 * n[1])```
+
+```Math.floor(255 * (n[1] - n[0]))```
+
+```Math.floor(255 * (n[2] * n[0]))```
 
 # Noise
 
