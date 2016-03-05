@@ -2,6 +2,20 @@
 
 Collection of noise functions written in JavaScript
 
+- [tooloud](https://github.com/jackunion/tooloud)
+  - [Installation](#installation)
+  - [Available noise functions](#available-noise-functions)
+  - [Using tooloud with canvas](#using-tooloud-with-canvas)
+    - [Note on using tooloud.Worley](#note-on-using-tooloudworley)
+    - [Note on using tooloud.Fractal](#note-on-using-tooloudfractal)
+  - [Examples](#examples)
+- [Noise](#noise)
+  -[General](#general)
+  -[Perlin](#perlin)
+  -[Simplex](#simplex)
+  -[Worley](#worley)
+  -[Fractal](#fractal)
+
 ### Installation
 
 `npm install tooloud`
@@ -60,7 +74,8 @@ ctx.putImageData(imageData, 0, 0);
 
 - [ ] fillRect() vs ImageData ([Pixel manipulation with canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas))
 
-#### Note on using tooloud.Worley
+##### Note on using tooloud.Worley
+
 Instead of returning a certain value, ```tooloud.Worley``` returns an array containing distances to three closest feature points. The idea behind this decision is simple: you can generate differenly looking textures by combining those distances (adding, multiplying or using the second closest feature point for example).
 
 To use ```tooloud.Worley``` with canvas you just need to slightly change the way you assign your RGB values:
@@ -79,7 +94,7 @@ data[index + 3] = 255;                     // A
 
 Consider these images:
 
-![](/img/Worley/Euclidean/1.png) ![](/img/Worley/Euclidean/2.png) ![](/img/Worley/Euclidean/3.png) ![](/img/Worley/Euclidean/4.png)
+![](/img/Worley/img/e1.png) ![](/img/Worley/img/e2.png) ![](/img/Worley/img/e3.png) ![](/img/Worley/img/e4.png)
 
 In order of appearance:
 
@@ -91,7 +106,12 @@ In order of appearance:
 
 ```Math.floor(255 * (n[2] * n[0]))```
 
-#### Note on using tooloud.Fractal
+##### Note on using tooloud.Fractal
+
+- [ ] TODO
+
+### Examples
+
 - [ ] TODO
 
 # Noise
