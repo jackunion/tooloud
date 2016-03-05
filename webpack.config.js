@@ -1,6 +1,9 @@
 module.exports = {
+    entry: './index.js',
     output: {
       libraryTarget: "umd",
-      library: "tooloud"
+      library: "tooloud",
+      path: './dist',
+      filename: 'tooloud.js'
     }
 };

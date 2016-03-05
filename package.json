@@ -1,0 +1,30 @@
+{
+  "name": "tooloud",
+  "version": "1.0.0",
+  "description": "Collection of noise functions written in JavaScript",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^1.12.14"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackunion/tooloud.git"
+  },
+  "keywords": [
+    "Perlin",
+    "Simplex",
+    "Worley",
+    "Fractal",
+    "noise"
+  ],
+  "author": "jackunion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackunion/tooloud/issues"
+  },
+  "homepage": "https://github.com/jackunion/tooloud#readme"
+}
