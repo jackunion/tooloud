@@ -81,7 +81,7 @@ Consider these images:
 
 ![](/img/Worley/Euclidean/1.png) ![](/img/Worley/Euclidean/2.png) ![](/img/Worley/Euclidean/3.png) ![](/img/Worley/Euclidean/4.png)
 
-```Math.floor(255 * n[0])``` ```Math.floor(255 * n[1])``` ```Math.floor(255 * (n[1] - n[0]))``` ```Math.floor(255 * (n[2] * n[0]))```
+```Math.floor(255 * n[0])``` | ```Math.floor(255 * n[1])``` | ```Math.floor(255 * (n[1] - n[0]))``` | ```Math.floor(255 * (n[2] * n[0]))```
 
 # Noise
 
