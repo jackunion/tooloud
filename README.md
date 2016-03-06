@@ -3,18 +3,18 @@
 Collection of noise functions written in JavaScript
 
 [tooloud](https://github.com/jackunion/tooloud)
-  [Installation](#installation)
-  [Available noise functions](#available-noise-functions)
-  [Using tooloud with canvas](#using-tooloud-with-canvas)
-    [Note on using tooloud.Worley](#note-on-using-tooloudworley)
-    [Note on using tooloud.Fractal](#note-on-using-tooloudfractal)
-  [Examples](#examples)
+  [Installation](#installation)  
+  [Available noise functions](#available-noise-functions)  
+  [Using tooloud with canvas](#using-tooloud-with-canvas)  
+    [Note on using tooloud.Worley](#note-on-using-tooloudworley)  
+    [Note on using tooloud.Fractal](#note-on-using-tooloudfractal)  
+  [Examples](#examples)  
 [Noise](#noise)
-  [General](#general)
-  [Perlin](#perlin)
-  [Simplex](#simplex)
-  [Worley](#worley)
-  [Fractal](#fractal)
+  [General](#general)  
+  [Perlin](#perlin)  
+  [Simplex](#simplex)  
+  [Worley](#worley)  
+  [Fractal](#fractal)  
 
 ### Installation
 
