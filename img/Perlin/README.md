@@ -10,6 +10,8 @@ data[index + 2] = Math.floor(255 * n);
 data[index + 3] = 255;
 ```
 
+---
+
 ![](/img/Perlin/img/2.png)
 
 ```javascript
@@ -20,6 +22,8 @@ data[index + 2] = Math.floor(255 * n);
 data[index + 3] = 255;
 ```
 
+---
+
 ![](/img/Perlin/img/3.png)
 
 ```javascript
@@ -29,6 +33,8 @@ data[index + 1] = Math.floor(255 * n);
 data[index + 2] = Math.floor(255 * n);
 data[index + 3] = 255;
 ```
+
+---
 
 ![](/img/Perlin/img/4.png)
 
