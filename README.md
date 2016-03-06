@@ -104,7 +104,10 @@ See [Worley noise examples](/examples/Worley) for code and texture samples.
 
 ### Examples
 
-- [ ] TODO
+- [Perlin noise](/examples/Perlin)
+- [Simplex noise](/examples/Simplex)
+- [Worley noise](/examples/Worley)
+- [Fractal noise](/examples/Fractal)
 
 # Noise
 
