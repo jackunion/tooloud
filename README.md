@@ -76,9 +76,9 @@ ctx.putImageData(imageData, 0, 0);
 
 ##### Note on using tooloud.Worley
 
-Instead of returning a certain value, ```tooloud.Worley``` returns an array containing distances to three closest feature points. The idea behind this decision is simple: you can generate differenly looking textures by combining those distances (adding, multiplying or using the second closest feature point for example).
+Instead of returning a certain value, ```tooloud.Worley``` returns an array containing distances to three closest feature points.
 
-To use ```tooloud.Worley``` with canvas you just need to slightly change the way you assign your RGB values:
+To use ```tooloud.Worley``` with canvas you just need to slightly change the way you calculate your RGB values:
 
 ```javascript
 var n = tooloud.Worley.Euclidean(x, y, z, seed);
@@ -92,19 +92,13 @@ data[index + 2] = Math.floor(255 * n[0]);  // B
 data[index + 3] = 255;                     // A
 ```
 
+The idea behind this decision is simple: you can generate differen textures by combining those distances (adding, multiplying or using the second closest feature point).
+
 Consider these images:
 
-![](/img/Worley/img/e1.png) ![](/img/Worley/img/e2.png) ![](/img/Worley/img/e3.png) ![](/img/Worley/img/e4.png)
+![](/examples/Worley/img/e1.png) ![](/examples/Worley/img/e2.png) ![](/examples/Worley/img/e3.png) ![](/examples/Worley/img/e4.png)
 
-In order of appearance:
-
-```Math.floor(255 * n[0])```
-
-```Math.floor(255 * n[1])```
-
-```Math.floor(255 * (n[1] - n[0]))```
-
-```Math.floor(255 * (n[2] * n[0]))```
+See [Worley noise examples](/examples/Worley) for code and texture samples.
 
 ##### Note on using tooloud.Fractal
 
