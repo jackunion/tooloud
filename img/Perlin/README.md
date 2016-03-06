@@ -1,6 +1,5 @@
 # Perlin noise
 
-
 ![](/img/Perlin/img/1.png)
 
 ```javascript
@@ -12,7 +11,6 @@ data[index + 3] = 255;
 ```
 
 ---
-
 
 ![](/img/Perlin/img/2.png)
 
@@ -26,7 +24,6 @@ data[index + 3] = 255;
 
 ---
 
-
 ![](/img/Perlin/img/3.png)
 
 ```javascript
@@ -38,7 +35,6 @@ data[index + 3] = 255;
 ```
 
 ---
-
 
 ![](/img/Perlin/img/4.png)
 
