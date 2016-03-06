@@ -1,6 +1,6 @@
 # Perlin noise
 
-![](/img/1.png)
+![](/img/Perlin/img/1.png)
 
 ```javascript
 var n = tooloud.Perlin.noise(x, y, z);
@@ -10,7 +10,7 @@ data[index + 2] = Math.floor(255 * n);
 data[index + 3] = 255;
 ```
 
-![](/img/2.png)
+![](/img/Perlin/img/2.png)
 
 ```javascript
 var n = (1 + tooloud.Perlin.noise(x, y, z)) / 2;
@@ -20,7 +20,7 @@ data[index + 2] = Math.floor(255 * n);
 data[index + 3] = 255;
 ```
 
-![](/img/3.png)
+![](/img/Perlin/img/3.png)
 
 ```javascript
 var n = Math.cos(tooloud.Perlin.noise(i/45, j/120, z) * 50);
@@ -30,7 +30,7 @@ data[index + 2] = Math.floor(255 * n);
 data[index + 3] = 255;
 ```
 
-![](/img/4.png)
+![](/img/Perlin/img/4.png)
 
 ```javascript
 var dist = (Math.pow(i - (canvasWidth / 2), 2) + Math.pow(j - (canvasHeight / 2), 2)) / 1000;
