@@ -72,7 +72,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 
 	    Simplex: {
-	        noise3D: Simplex.noise3D
+	        noise: Simplex.noise
 	    },
 
 	    Worley: {
@@ -217,12 +217,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return K(hi) + K(3 - hi - lo) + K(lo) + K(0);
 	    }
 
-	    function noise3D(x, y, z) {
-	        return noise(x, y, z);
-	    }
-
 	    return {
-	        noise3D: noise3D
+	        noise: noise
 	    }
 	}());
 

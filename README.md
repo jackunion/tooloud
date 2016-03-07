@@ -33,7 +33,7 @@ or
 
 ```
 tooloud.Perlin.noise(x, y, z);
-tooloud.Simplex.noise3D(x, y, z);
+tooloud.Simplex.noise(x, y, z);
 tooloud.Worley.Euclidean(x, y, z, seed);
 tooloud.Worley.Manhattan(x, y, z, seed);
 tooloud.Fractal(x, y, z, octaves, noiseCallback);
@@ -42,7 +42,7 @@ tooloud.Fractal(x, y, z, octaves, noiseCallback);
 ### Using tooloud with canvas
 
 ```javascript
-var tooloud = require('tooloud'); // omit if tooloud is included via the script tag
+var tooloud = require('tooloud'); // omit if tooloud was included via the script tag
 
 var canvas = document.getElementById('canvas'),
     ctx = canvas.getContext('2d'),
@@ -57,15 +57,36 @@ canvas.height = canvasHeight;
 for (var i = 0; i < canvasWidth; i++) {
     for (var j = 0; j < canvasHeight; j++) {
         var index = (i + j * canvasWidth) * 4;
-        var x = 10 * (i / canvasWidth), 
-            y = 10 * (j / canvasHeight),
-            z = 0.8;
-        var n = tooloud.Perlin.noise(x, y, z);
+        var x, y, z;
+        
+        /*
+        Normalize:
+        x = i / canvasWidth;
+        y = j / canvasHeight;
+        z = 0;
+        // fixing one of the coordinates turns 3D noise into 2D noise
+        // fixing two of the coordinates turns 3D noise into 1D noise
+        
+        // Scale:
+        var scale = 10;
+        x = scale * x;
+        y = scale * y;
+        */
+        
+        // In one go:
+        var x = scale * (i / canvasWidth), 
+            y = scale * (j / canvasHeight),
+            z = 0;
 
-        data[index + 0] = Math.floor(255 * n);  // R
-        data[index + 1] = Math.floor(255 * n);  // G
-        data[index + 2] = Math.floor(255 * n);  // B
-        data[index + 3] = 255;                  // A
+        var n = tooloud.Perlin.noise(x, y, z),  // calculate noise value at x, y, z
+            r = Math.floor(255 * n),
+            g = Math.floor(255 * n),
+            b = Math.floor(255 * n);
+
+        data[index + 0] = r;            // R
+        data[index + 1] = g;            // G
+        data[index + 2] = b;            // B
+        data[index + 3] = 255;          // A
     }
 }
 
@@ -102,6 +123,21 @@ See [Worley noise examples](/examples/Worley) for code and texture samples.
 
 - [ ] TODO
 
+```javascript
+function fractalCallback(x, y, z) {
+    // return tooloud.Perlin.noise(x, y, z);
+    // return (1 + tooloud.Simplex.noise(x, y, z)) / 2;
+    var n = tooloud.Worley.Euclidean(x, y, z, seed);
+    return n[1] - n[0];
+}
+
+var n = tooloud.Fractal.noise(x, y, z, octaves, fractalCallback);
+data[index + 0] = Math.floor(255 * n);      // R
+data[index + 1] = Math.floor(255 * n);      // G
+data[index + 2] = Math.floor(255 * n);      // B
+data[index + 3] = 255;                      // A
+```
+
 ### Examples
 
 - [Perlin noise](/examples/Perlin)
@@ -119,7 +155,7 @@ See [Worley noise examples](/examples/Worley) for code and texture samples.
 - http://blogs.msdn.com/b/hemipteran/archive/2014/03/26/generating-noise-for-applications.aspx
 - http://lodev.org/cgtutor/randomnoise.html
 
-## Perlin
+## Perlin noise
 
 - [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise) on Wikipedia
 - Original Java implementation of [Improved Perlin noise](http://mrl.nyu.edu/~perlin/noise/)
@@ -127,19 +163,19 @@ See [Worley noise examples](/examples/Worley) for code and texture samples.
 - http://asserttrue.blogspot.fi/2012/01/procedural-textures-in-html5-canvas.html
 - http://flafla2.github.io/2014/08/09/perlinnoise.html
 
-## Simplex
+## Simplex noise
 
 - [Simplex noise](https://en.wikipedia.org/wiki/Simplex_noise) on Wikipedia
 - Original Java implementation of [Simplex noise](http://www.csee.umbc.edu/~olano/s2002c36/ch02.pdf) (Appendix B)
 - https://briansharpe.wordpress.com/2012/01/13/simplex-noise/
 
-## Worley
+## Worley noise
 
 - [Worley noise](https://en.wikipedia.org/wiki/Worley_noise) on Wikipedia
 - An in depth [cell noise tutorial](https://aftbit.com/cell-noise-2/)
 - Steven Worley's article on cell noise: [A Cellular Texture Basis Function](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.95.412&rep=rep1&type=pdf)
 - Carl-Johan Rosén's paper on cell noise: [Cell Noise and Processing](http://www.carljohanrosen.com/share/CellNoiseAndProcessing.pdf)
 
-## Fractal
+## Fractal noise
 
 - http://asserttrue.blogspot.fi/2012/01/turbulence-in-html5-canvas.html
