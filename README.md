@@ -57,9 +57,10 @@ canvas.height = canvasHeight;
 for (var i = 0; i < canvasWidth; i++) {
     for (var j = 0; j < canvasHeight; j++) {
         var index = (i + j * canvasWidth) * 4;
-        var x, y, z;
         
         /*
+        var x, y, z;
+
         Normalize:
         x = i / canvasWidth;
         y = j / canvasHeight;
@@ -74,8 +75,8 @@ for (var i = 0; i < canvasWidth; i++) {
         */
         
         // In one go:
-        var x = scale * (i / canvasWidth), 
-            y = scale * (j / canvasHeight),
+        var x = 15 * (i / canvasWidth), 
+            y = 5 * (j / canvasHeight),         // You can use different scale values for each coordinate
             z = 0;
 
         var n = tooloud.Perlin.noise(x, y, z),  // calculate noise value at x, y, z
