@@ -6,6 +6,7 @@ Collection of noise functions written in JavaScript
   - [Installation](#installation)
   - [Available noise functions](#available-noise-functions)
   - [Using tooloud with canvas](#using-tooloud-with-canvas)
+    - [Note on using smaller canvas](#note-on-using-smaller-canvas)
     - [Note on using tooloud.Worley](#note-on-using-tooloudworley)
     - [Note on using tooloud.Fractal](#note-on-using-tooloudfractal)
   - [Examples](#examples)
@@ -95,6 +96,10 @@ ctx.putImageData(imageData, 0, 0);
 ```
 
 - [ ] fillRect() vs ImageData ([Pixel manipulation with canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas))
+
+##### Note on using smaller canvas
+
+- [ ] TODO
 
 ##### Note on using tooloud.Worley
 
