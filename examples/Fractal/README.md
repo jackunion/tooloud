@@ -61,7 +61,7 @@ data[index + 3] = 255;
 ```javascript
 // define a callback function
 function fractalCallback(x, y, z) {
-    return (1 + tooloud.Perlin.noise(x, y, z)) / 2;
+    return (1 + tooloud.Simplex.noise(x, y, z)) / 2;
 }
 
 // loop
@@ -81,7 +81,7 @@ data[index + 3] = 255;
 ```javascript
 // define a callback function
 function fractalCallback(x, y, z) {
-    return (1 + tooloud.Perlin.noise(x, y, z)) / 2;
+    return (1 + tooloud.Simplex.noise(x, y, z)) / 2;
 }
 
 // loop
