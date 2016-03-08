@@ -12,10 +12,10 @@ Collection of noise functions written in JavaScript
   - [Examples](#examples)
 - [Noise](#noise)
   - [General](#general)
-  - [Perlin](#perlin)
-  - [Simplex](#simplex)
-  - [Worley](#worley)
-  - [Fractal](#fractal)
+  - [Perlin](#perlin-noise)
+  - [Simplex](#simplex-noise)
+  - [Worley](#worley-noise)
+  - [Fractal](#fractal-noise)
 
 ### Installation
 
