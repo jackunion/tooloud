@@ -48,7 +48,7 @@ var tooloud = require('tooloud'); // omit if tooloud was included via the script
 var canvas = document.getElementById('canvas'),
     ctx = canvas.getContext('2d'),
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight),
-    data = imageData.data;
+    data = imageData.data,
     canvasWidth = 640,
     canvasHeight = 480;
 
@@ -95,7 +95,17 @@ for (var i = 0; i < canvasWidth; i++) {
 ctx.putImageData(imageData, 0, 0);
 ```
 
-- [ ] fillRect() vs ImageData ([Pixel manipulation with canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas))
+The naive way of using a noise function would be to set your RGB values using ```context.fillStylle``` and then draw a rectangle at the pixel's coordiantes:
+
+```javascript
+// loop
+context.fillStyle = 'rgba(' + [r,g,b,255].join(',') + ')';
+contex.fillRect(i, j, 1, 1);
+```
+
+Despite the fact that you need less code to get the same result, this approach is *incredibly* slower than one involving ```ImageData```.
+
+In case you would like to know more, you can read about [pixel manipulation with canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas) on Mozilla Developer Network.
 
 ##### Note on using smaller canvas
 
@@ -157,7 +167,7 @@ data[index + 3] = 255;                      // A
 
 - [Gradient noise](https://en.wikipedia.org/wiki/Gradient_noise) on Wikipedia
 - [Value noise](https://en.wikipedia.org/wiki/Value_noise) on Wikipedia
-- http://www.redblobgames.com/articles/noise/introduction.html
+- [Introduction to noise functions](http://www.redblobgames.com/articles/noise/introduction.html) on RedBlobGames
 - http://blogs.msdn.com/b/hemipteran/archive/2014/03/26/generating-noise-for-applications.aspx
 - http://lodev.org/cgtutor/randomnoise.html
 
