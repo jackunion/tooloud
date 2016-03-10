@@ -68,6 +68,7 @@ for (var i = 0; i < canvasWidth; i++) {
         z = 0;
         // fixing one of the coordinates turns 3D noise into 2D noise
         // fixing two of the coordinates turns 3D noise into 1D noise
+        // fixed coordinate will serve as a seed, i.e. you'll get different results for different values
         
         // Scale:
         var scale = 10;
@@ -109,7 +110,7 @@ In case you would like to know more, you can read about [pixel manipulation with
 
 ##### Note on using smaller canvas
 
-- [ ] TODO
+![](/examples/_scaling/3.png) ![](/examples/_scaling/2.png) ![](/examples/_scaling/1.png)
 
 ##### Note on using tooloud.Worley
 
