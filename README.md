@@ -132,7 +132,7 @@ data[index + 2] = Math.floor(255 * n[0]);  // B
 data[index + 3] = 255;                     // A
 ```
 
-The idea behind this decision is simple: you can generate different textures by combining those distances (adding, multiplying or using the second closest feature point):
+The idea behind this decision is simple: you can generate different textures by combining those distances (adding, multiplying or using the n-th closest feature point):
 
 ![](/examples/Worley/img/e1.png) ![](/examples/Worley/img/e2.png) ![](/examples/Worley/img/e3.png) ![](/examples/Worley/img/e4.png)
 
