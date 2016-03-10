@@ -140,16 +140,33 @@ See [Worley noise examples](/examples/Worley) for code and texture samples.
 
 ##### Note on using tooloud.Fractal
 
-- [ ] TODO
+```tooloud.Fractal.noise``` accepts five arguments:
+
+- x, y and z coordinates
+- number of octaves
+- a noise function you want to apply fractal noise to
+
+You can simply pass the desired noise function to your fractal noise like this:
+
+```javascript
+var n = tooloud.Fractal.noise(x, y, z, octaves, tooloud.Perlin.noise);
+```
+
+The better way to use it would be to define a separate function outside the loop and use it as an argument for ```tooloud.Fractal.noise``` later on. Inside that function you would call the desired noise function, process the output the way you want and return the result:
 
 ```javascript
 function fractalCallback(x, y, z) {
+    // you can use different noise functions
+
     // return tooloud.Perlin.noise(x, y, z);
+
     // return (1 + tooloud.Simplex.noise(x, y, z)) / 2;
+
     var n = tooloud.Worley.Euclidean(x, y, z, seed);
     return n[1] - n[0];
 }
 
+// loop
 var n = tooloud.Fractal.noise(x, y, z, octaves, fractalCallback);
 data[index + 0] = Math.floor(255 * n);      // R
 data[index + 1] = Math.floor(255 * n);      // G
