@@ -110,6 +110,8 @@ In case you would like to know more, you can read about [pixel manipulation with
 
 ##### Note on using smaller canvas
 
+Sometimes you find yourself in need of rerunning the same noise function with different input values. In this case, consider scaling your canvas down for a faster performance until the desired output is found.
+
 ![](/examples/_scaling/3.png) ![](/examples/_scaling/2.png) ![](/examples/_scaling/1.png)
 
 ##### Note on using tooloud.Worley
