@@ -170,23 +170,23 @@ data[index + 3] = 255;                      // A
 
 - [Gradient noise](https://en.wikipedia.org/wiki/Gradient_noise) on Wikipedia
 - [Value noise](https://en.wikipedia.org/wiki/Value_noise) on Wikipedia
-- [Introduction to noise functions](http://www.redblobgames.com/articles/noise/introduction.html) on RedBlobGames
-- http://blogs.msdn.com/b/hemipteran/archive/2014/03/26/generating-noise-for-applications.aspx
-- http://lodev.org/cgtutor/randomnoise.html
+- ["Introduction to noise functions"](http://www.redblobgames.com/articles/noise/introduction.html) on RedBlobGames
+- ["Generating Noise for applications"](http://blogs.msdn.com/b/hemipteran/archive/2014/03/26/generating-noise-for-applications.aspx) - an article on four different types of noise generation algorithms
 
 ## Perlin noise
 
 - [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise) on Wikipedia
 - Original Java implementation of [Improved Perlin noise](http://mrl.nyu.edu/~perlin/noise/)
-- http://asserttrue.blogspot.fi/2011/12/perlin-noise-in-javascript_31.html
-- http://asserttrue.blogspot.fi/2012/01/procedural-textures-in-html5-canvas.html
-- http://flafla2.github.io/2014/08/09/perlinnoise.html
+- ["Perlin Noise in JavaScript"](http://asserttrue.blogspot.fi/2011/12/perlin-noise-in-javascript_31.html) - a brief introduction to Perlin noise
+- ["Understanding Perlin Noise"](http://flafla2.github.io/2014/08/09/perlinnoise.html) - an in depth explanation of Perlin noise
+- ["Procedural Textures in HTML5 Canvas"](http://asserttrue.blogspot.fi/2012/01/procedural-textures-in-html5-canvas.html) - a blog post on Perlin noise usage (with code and texture samples)
 
 ## Simplex noise
 
 - [Simplex noise](https://en.wikipedia.org/wiki/Simplex_noise) on Wikipedia
 - Original Java implementation of [Simplex noise](http://www.csee.umbc.edu/~olano/s2002c36/ch02.pdf) (Appendix B)
-- https://briansharpe.wordpress.com/2012/01/13/simplex-noise/
+- ["Simplex noise demystified"](http://webstaff.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf) by Stefan Gustavson
+- [A blog post](https://briansharpe.wordpress.com/2012/01/13/simplex-noise/) on optimized GPU noise functions and utilities (with a discussion in comments)
 
 ## Worley noise
 
@@ -197,4 +197,4 @@ data[index + 3] = 255;                      // A
 
 ## Fractal noise
 
-- http://asserttrue.blogspot.fi/2012/01/turbulence-in-html5-canvas.html
+- ["Turbulence in HTML5 Canvas"](http://asserttrue.blogspot.fi/2012/01/turbulence-in-html5-canvas.html)
