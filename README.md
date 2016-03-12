@@ -40,7 +40,7 @@ tooloud.Worley.Manhattan(x, y, z, seed);
 tooloud.Fractal(x, y, z, octaves, noiseCallback);
 ```
 
-**IMPORTANT NOTE:** seeding ```tooloud.Perlin``` or ```tooloud.Simplex``` may slightly increase the execution time.
+Seeding ```tooloud.Perlin``` or ```tooloud.Simplex``` may slightly increase the execution time.
 
 All ```seed``` arguments are optional. If ```seed``` argument was omitted:
 
