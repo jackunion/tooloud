@@ -122,7 +122,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return ((h&1) === 0 ? u : -u) + ((h&2) === 0 ? v : -v);
 	    }
 
-	    function noise(x, y, z) {
+	    function xorshift(seed) {
+	        x = seed ^ (seed >> 12);
+	        x = x ^ (x << 25);
+	        x = x ^ (x >> 27);
+	        return x * 2;
+	    }
+
+	    function noise(x, y, z, seed) {
+	        if (seed !== undefined) {
+	            var seedValue = xorshift(seed);
+	            x += seedValue;
+	            y += seedValue;
+	            z += seedValue;
+	        }
 	        var X = Math.floor(x) & 255,
 	            Y = Math.floor(y) & 255,
 	            Z = Math.floor(z) & 255;
@@ -202,7 +215,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	            b4func(j, k, i, 4) + b4func(k, i, j, 5) + b4func(i, j, k, 6) + b4func(j, k, i, 7)
 	    }
 
-	    function noise(x, y, z) {
+	    function xorshift(seed) {
+	        x = seed ^ (seed >> 12);
+	        x = x ^ (x << 25);
+	        x = x ^ (x >> 27);
+	        return x * 2;
+	    }
+
+	    function noise(x, y, z, seed) {
+	        if (seed !== undefined) {
+	            var seedValue = xorshift(seed);
+	            x += seedValue;
+	            y += seedValue;
+	            z += seedValue;
+	        }
 	        var s = (x + y + z) / 3;
 	        i = Math.floor(x + s);
 	        j = Math.floor(y + s);
