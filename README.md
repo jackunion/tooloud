@@ -33,12 +33,19 @@ or
 ### Available noise functions
 
 ```
-tooloud.Perlin.noise(x, y, z);
-tooloud.Simplex.noise(x, y, z);
+tooloud.Perlin.noise(x, y, z, seed);
+tooloud.Simplex.noise(x, y, z, seed);
 tooloud.Worley.Euclidean(x, y, z, seed);
 tooloud.Worley.Manhattan(x, y, z, seed);
 tooloud.Fractal(x, y, z, octaves, noiseCallback);
 ```
+
+**IMPORTANT NOTE:** seeding ```tooloud.Perlin``` or ```tooloud.Simplex``` may slightly increase the execution time.
+
+All ```seed``` arguments are optional. If ```seed``` argument was omitted:
+
+- ```tooloud.Perlin``` and ```tooloud.Simplex``` will run without any seed
+- ```tooloud.Worley``` will supply the noise function with seed (defaults to 3000)
 
 ### Using tooloud with canvas
 
@@ -54,6 +61,8 @@ var canvas = document.getElementById('canvas'),
 
 canvas.width = canvasWidth;
 canvas.height = canvasHeight;
+
+var seed = Math.floor(Math.random() * 10000);
 
 for (var i = 0; i < canvasWidth; i++) {
     for (var j = 0; j < canvasHeight; j++) {
@@ -81,7 +90,7 @@ for (var i = 0; i < canvasWidth; i++) {
             y = 5 * (j / canvasHeight),         // You can use different scale values for each coordinate
             z = 0;
 
-        var n = tooloud.Perlin.noise(x, y, z),  // calculate noise value at x, y, z
+        var n = tooloud.Perlin.noise(x, y, z, seed),  // calculate noise value at x, y, z
             r = Math.floor(255 * n),
             g = Math.floor(255 * n),
             b = Math.floor(255 * n);
@@ -160,7 +169,7 @@ function fractalCallback(x, y, z) {
 
     // return tooloud.Perlin.noise(x, y, z);
 
-    // return (1 + tooloud.Simplex.noise(x, y, z)) / 2;
+    // return (1 + tooloud.Simplex.noise(x, y, z, seed)) / 2;
 
     var n = tooloud.Worley.Euclidean(x, y, z, seed);
     return n[1] - n[0];
