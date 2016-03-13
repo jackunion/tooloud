@@ -32,20 +32,28 @@ or
 
 ### Available noise functions
 
-```
-tooloud.Perlin.noise(x, y, z, seed);
-tooloud.Simplex.noise(x, y, z, seed);
-tooloud.Worley.Euclidean(x, y, z, seed);
-tooloud.Worley.Manhattan(x, y, z, seed);
+```javascript
+tooloud.Perlin.noise(x, y, z);
+tooloud.Simplex.noise(x, y, z);
+tooloud.Worley.Euclidean(x, y, z);
+tooloud.Worley.Manhattan(x, y, z);
 tooloud.Fractal(x, y, z, octaves, noiseCallback);
 ```
 
-Seeding ```tooloud.Perlin``` or ```tooloud.Simplex``` may slightly increase the execution time.
+Each ```tooloud``` object exposes a function that can be used to seed the noise:
 
-All ```seed``` arguments are optional. If ```seed``` argument was omitted:
+```javascript
+tooloud.Perlin.setSeed(seed);
+tooloud.Simplex.setSeed(seed);
+tooloud.Worley.setSeed(seed);
+```
+
+If seed wasn't set:
 
 - ```tooloud.Perlin``` and ```tooloud.Simplex``` will run without any seed
 - ```tooloud.Worley``` will supply the noise function with seed (defaults to 3000)
+
+**Important:** seeding the noise may increase the execution time.
 
 ### Using tooloud with canvas
 
@@ -62,7 +70,9 @@ var canvas = document.getElementById('canvas'),
 canvas.width = canvasWidth;
 canvas.height = canvasHeight;
 
-var seed = Math.floor(Math.random() * 10000);
+// seed your noise
+// this is optional
+tooloud.Perlin.setSeed(Math.floor(Math.random() * 10000));
 
 for (var i = 0; i < canvasWidth; i++) {
     for (var j = 0; j < canvasHeight; j++) {
@@ -90,7 +100,7 @@ for (var i = 0; i < canvasWidth; i++) {
             y = 5 * (j / canvasHeight),         // You can use different scale values for each coordinate
             z = 0;
 
-        var n = tooloud.Perlin.noise(x, y, z, seed),  // calculate noise value at x, y, z
+        var n = tooloud.Perlin.noise(x, y, z),  // calculate noise value at x, y, z
             r = Math.floor(255 * n),
             g = Math.floor(255 * n),
             b = Math.floor(255 * n);
@@ -130,7 +140,7 @@ Instead of returning a certain value, ```tooloud.Worley``` returns an array cont
 To use ```tooloud.Worley``` with canvas you just need to slightly change the way you calculate your RGB values:
 
 ```javascript
-var n = tooloud.Worley.Euclidean(x, y, z, seed);
+var n = tooloud.Worley.Euclidean(x, y, z);
 
 // n is an array containing three numbers
 // using indexes from 0 to 2 you can access one of them
@@ -169,9 +179,9 @@ function fractalCallback(x, y, z) {
 
     // return tooloud.Perlin.noise(x, y, z);
 
-    // return (1 + tooloud.Simplex.noise(x, y, z, seed)) / 2;
+    // return (1 + tooloud.Simplex.noise(x, y, z)) / 2;
 
-    var n = tooloud.Worley.Euclidean(x, y, z, seed);
+    var n = tooloud.Worley.Euclidean(x, y, z);
     return n[1] - n[0];
 }
 

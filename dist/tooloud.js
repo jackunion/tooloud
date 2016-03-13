@@ -68,16 +68,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = {
 	    Perlin: {
-	        noise: Perlin.noise
+	        noise: Perlin.noise,
+	        setSeed: Perlin.setSeed
 	    },
 
 	    Simplex: {
-	        noise: Simplex.noise
+	        noise: Simplex.noise,
+	        setSeed: Simplex.setSeed
 	    },
 
 	    Worley: {
 	        Euclidean: Worley.Euclidean,
-	        Manhattan: Worley.Manhattan
+	        Manhattan: Worley.Manhattan,
+	        setSeed: Worley.setSeed
 	    },
 
 	    Fractal: {
@@ -110,6 +113,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180
 	    ];
 	    var p = permutation.concat(permutation);
+
+	    var seedValue = 0;
+
+	    function setSeed(seed) {
+	        function xorshift(seed) {
+	            x = seed ^ (seed >> 12);
+	            x = x ^ (x << 25);
+	            x = x ^ (x >> 27);
+	            return x * 2;
+	        }
+
+	        seedValue = seed ? xorshift(seed) : 0;
+	    }
 	    
 	    function lerp(t, a, b) { return a + t * (b - a) }
 	    
@@ -122,20 +138,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return ((h&1) === 0 ? u : -u) + ((h&2) === 0 ? v : -v);
 	    }
 
-	    function xorshift(seed) {
-	        x = seed ^ (seed >> 12);
-	        x = x ^ (x << 25);
-	        x = x ^ (x >> 27);
-	        return x * 2;
-	    }
-
-	    function noise(x, y, z, seed) {
-	        if (seed !== undefined) {
-	            var seedValue = xorshift(seed);
-	            x += seedValue;
-	            y += seedValue;
-	            z += seedValue;
-	        }
+	    function noise(x, y, z) {
+	        x += seedValue;
+	        y += seedValue;
+	        z += seedValue;
 	        var X = Math.floor(x) & 255,
 	            Y = Math.floor(y) & 255,
 	            Z = Math.floor(z) & 255;
@@ -161,7 +167,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    return {
-	        noise: noise
+	        noise: noise,
+	        setSeed: setSeed
 	    }
 	}());
 
@@ -177,6 +184,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var A = [0, 0, 0];
 	    var u, v, w;
 	    var T = [0x15,0x38,0x32,0x2c,0x0d,0x13,0x07,0x2a];
+
+	    var seedValue = 0;
+
+	    function setSeed(seed) {
+	        function xorshift(seed) {
+	            x = seed ^ (seed >> 12);
+	            x = x ^ (x << 25);
+	            x = x ^ (x >> 27);
+	            return x * 2;
+	        }
+
+	        seedValue = seed ? xorshift(seed) : 0;
+	    }
 
 	    function b2func(N, B) { return N >> B & 1 }
 
@@ -215,20 +235,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            b4func(j, k, i, 4) + b4func(k, i, j, 5) + b4func(i, j, k, 6) + b4func(j, k, i, 7)
 	    }
 
-	    function xorshift(seed) {
-	        x = seed ^ (seed >> 12);
-	        x = x ^ (x << 25);
-	        x = x ^ (x >> 27);
-	        return x * 2;
-	    }
-
-	    function noise(x, y, z, seed) {
-	        if (seed !== undefined) {
-	            var seedValue = xorshift(seed);
-	            x += seedValue;
-	            y += seedValue;
-	            z += seedValue;
-	        }
+	    function noise(x, y, z) {
+	        x += seedValue;
+	        y += seedValue;
+	        z += seedValue;
 	        var s = (x + y + z) / 3;
 	        i = Math.floor(x + s);
 	        j = Math.floor(y + s);
@@ -244,7 +254,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    return {
-	        noise: noise
+	        noise: noise,
+	        setSeed: setSeed
 	    }
 	}());
 
@@ -256,6 +267,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	var Worley = (function() {
+	    var Seed = 3000;
+
+	    function setSeed(seed) {
+	        Seed = seed;
+	    }
+
 	    function xorshift(seed) {
 	        x = seed ^ (seed >> 12);
 	        x = x ^ (x << 25);
@@ -303,7 +320,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    function noise(input, distanceFunc) {
-	        var Seed = input.seed || 3000;
 	        var lastRandom,
 	            numberFeaturePoints,
 	            randomDiff = { x: 0, y: 0, z: 0 },
@@ -338,17 +354,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return distanceArray.map(function(x) { return x < 0 ? 0 : x > 1 ? 1 : x });
 	    }
 
-	    function Euclidean(x, y, z, seed) {
-	        return noise({x:x, y:y, z:z, seed:seed}, EuclideanDistance);
+	    function Euclidean(x, y, z) {
+	        return noise({x:x, y:y, z:z}, EuclideanDistance);
 	    }
 
-	    function Manhattan(x, y, z, seed) {
-	        return noise({x:x, y:y, z:z, seed:seed}, ManhattanDistance);
+	    function Manhattan(x, y, z) {
+	        return noise({x:x, y:y, z:z}, ManhattanDistance);
 	    }
 
 	    return {
 	        Euclidean: Euclidean,
-	        Manhattan: Manhattan
+	        Manhattan: Manhattan,
+	        setSeed: setSeed
 	    }
 	}());
 
