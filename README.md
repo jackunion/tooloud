@@ -174,6 +174,14 @@ var n = tooloud.Fractal.noise(x, y, z, octaves, tooloud.Perlin.noise);
 The better way to use it would be to define a separate function outside the loop and use it as an argument for ```tooloud.Fractal.noise``` later on. Inside that function you would call the desired noise function, process the output the way you want and return the result:
 
 ```javascript
+// optionally seed the noise
+
+// tooloud.Perlin.setSeed(1234);
+
+// tooloud.Simplex.setSeed(12);
+
+tooloud.Worley.setSeed(123);
+
 function fractalCallback(x, y, z) {
     // you can use different noise functions
 
