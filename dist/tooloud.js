@@ -66,34 +66,43 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Worley = __webpack_require__(4),
 	    Fractal = __webpack_require__(5);
 
+	var perlin = new Perlin(),
+	    simplex = new Simplex(),
+	    worley = new Worley(),
+	    fractal = new Fractal();
+
 	module.exports = {
 	    Perlin: {
-	        noise: Perlin.noise,
-	        setSeed: Perlin.setSeed
+	        noise: perlin.noise,
+	        setSeed: perlin.setSeed,
+	        create: function(seed) { return new Perlin(seed) }
 	    },
 
 	    Simplex: {
-	        noise: Simplex.noise,
-	        setSeed: Simplex.setSeed
+	        noise: simplex.noise,
+	        setSeed: simplex.setSeed,
+	        create: function(seed) { return new Simplex(seed) }
 	    },
 
 	    Worley: {
-	        Euclidean: Worley.Euclidean,
-	        Manhattan: Worley.Manhattan,
-	        setSeed: Worley.setSeed
+	        Euclidean: worley.Euclidean,
+	        Manhattan: worley.Manhattan,
+	        setSeed: worley.setSeed,
+	        create: function(seed) { return new Worley(seed) }
 	    },
 
 	    Fractal: {
-	        noise: Fractal.noise
+	        noise: fractal.noise,
+	        create: function() { return new Fractal() }
 	    }
-	};
+	}
 
 
 /***/ },
 /* 2 */
 /***/ function(module, exports) {
 
-	var Perlin = (function() {
+	function Perlin(seed) {
 	    var permutation = [
 	        151,160,137,91,90,15,131,13,201,95,96,53,194,233,7,225,
 	        140,36,103,30,69,142,8,99,37,240,21,10,23,190,6,148,
@@ -114,17 +123,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    ];
 	    var p = permutation.concat(permutation);
 
-	    var seedValue = 0;
+	    var seedValue = seed ? xorshift(seed) : 0;
 
 	    function setSeed(seed) {
-	        function xorshift(seed) {
-	            x = seed ^ (seed >> 12);
-	            x = x ^ (x << 25);
-	            x = x ^ (x >> 27);
-	            return x * 2;
-	        }
-
 	        seedValue = seed ? xorshift(seed) : 0;
+	    }
+
+	    function xorshift(seed) {
+	        x = seed ^ (seed >> 12);
+	        x = x ^ (x << 25);
+	        x = x ^ (x >> 27);
+	        return x * 2;
 	    }
 	    
 	    function lerp(t, a, b) { return a + t * (b - a) }
@@ -170,7 +179,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        noise: noise,
 	        setSeed: setSeed
 	    }
-	}());
+	}
 
 	module.exports = Perlin;
 
@@ -179,23 +188,23 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 3 */
 /***/ function(module, exports) {
 
-	var Simplex = (function() {
+	function Simplex(seed) {
 	    var i, j, k;
 	    var A = [0, 0, 0];
 	    var u, v, w;
 	    var T = [0x15,0x38,0x32,0x2c,0x0d,0x13,0x07,0x2a];
 
-	    var seedValue = 0;
+	    var seedValue = seed ? xorshift(seed) : 0;
 
 	    function setSeed(seed) {
-	        function xorshift(seed) {
-	            x = seed ^ (seed >> 12);
-	            x = x ^ (x << 25);
-	            x = x ^ (x >> 27);
-	            return x * 2;
-	        }
-
 	        seedValue = seed ? xorshift(seed) : 0;
+	    }
+
+	    function xorshift(seed) {
+	        x = seed ^ (seed >> 12);
+	        x = x ^ (x << 25);
+	        x = x ^ (x >> 27);
+	        return x * 2;
 	    }
 
 	    function b2func(N, B) { return N >> B & 1 }
@@ -257,7 +266,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        noise: noise,
 	        setSeed: setSeed
 	    }
-	}());
+	}
 
 	module.exports = Simplex;
 
@@ -266,8 +275,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 4 */
 /***/ function(module, exports) {
 
-	var Worley = (function() {
-	    var Seed = 3000;
+	function Worley(seed) {
+	    var Seed = seed ? seed : 3000;
 
 	    function setSeed(seed) {
 	        Seed = seed;
@@ -367,7 +376,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        Manhattan: Manhattan,
 	        setSeed: setSeed
 	    }
-	}());
+	}
 
 	module.exports = Worley;
 
@@ -376,7 +385,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 5 */
 /***/ function(module, exports) {
 
-	var Fractal = (function() {
+	function Fractal() {
 	    function noise(x, y, z, octaves, noiseCallback) {
 	        var t = 0, f = 1, n = 0;
 	        for (var i = 0; i < octaves; i++) {
@@ -390,7 +399,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return {
 	        noise: noise
 	    }
-	}());
+	}
 
 	module.exports = Fractal;
 

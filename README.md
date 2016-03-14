@@ -53,7 +53,22 @@ If seed wasn't set:
 - ```tooloud.Perlin``` and ```tooloud.Simplex``` will run without any seed
 - ```tooloud.Worley``` will supply the noise function with seed (defaults to 3000)
 
+Calling ```setSeed()``` without an argument will reset the seed.
+
 **Important:** seeding the noise may increase the execution time.
+
+Each ```tooloud``` object exposes a function that can be used to create another instance of that object. You can pass an optional seed value as an argument:
+
+```javascript
+var anotherPerlin = tooloud.Perlin.create(seed);
+var anotherSimplex = tooloud.Simplex.create(seed);
+var anotherWorley = tooloud.Worley.create(seed);
+var anotherFractal = tooloud.Fractal.create();
+```
+
+Each newly created instance exposes two functions: ```instance.noise(x, y, z)``` and ```instance.setSeed(seed)``` (```tooloud.Worley``` instances expose three functions: ```instance.Euclidean(x, y, z)```, ```instance.Manhattan(x, y, z)``` and ```instance.setSeed(seed)```).
+
+**Important:** working with multiple instances may increase the execution time.
 
 ### Using tooloud with canvas
 
