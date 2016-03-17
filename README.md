@@ -14,10 +14,10 @@ Simple [jsFiddle demo](https://jsfiddle.net/jackunion/r37nba0L/).
   - [Examples](#examples)
 - [Noise](#noise)
   - [General](#general)
-  - [Perlin](#perlin-noise)
-  - [Simplex](#simplex-noise)
-  - [Worley](#worley-noise)
-  - [Fractal](#fractal-noise)
+  - [Perlin noise](#perlin-noise)
+  - [Simplex noise](#simplex-noise)
+  - [Worley noise](#worley-noise)
+  - [Fractal noise](#fractal-noise)
 
 ### Installation
 
@@ -217,6 +217,8 @@ data[index + 1] = Math.floor(255 * n);      // G
 data[index + 2] = Math.floor(255 * n);      // B
 data[index + 3] = 255;                      // A
 ```
+
+**Important:** ```tooloud.Fractal.noise``` adds rescaled versions of the same noise onto itself, which may create some artifacts radiating from the origin. In case you find yourself unsatisfied with the output, you can always use available ```tooloud``` noise functions to create your own version of fractal noise.
 
 ### Examples
 
