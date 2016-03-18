@@ -4,6 +4,8 @@ Collection of noise functions written in JavaScript
 
 Simple [jsFiddle demo](https://jsfiddle.net/jackunion/r37nba0L/).
 
+### Contents
+
 - [tooloud](https://github.com/jackunion/tooloud)
   - [Installation](#installation)
   - [Available noise functions](#available-noise-functions)
