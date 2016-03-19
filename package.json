@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "gulp": "^3.9.1",
     "webpack": "^1.12.14"
   },
   "scripts": {
