@@ -25,10 +25,14 @@ Simple [jsFiddle demo](https://jsfiddle.net/jackunion/r37nba0L/).
 
 `npm install tooloud`
 
-`var tooloud = require ('tooloud');`
+```javascript
+import tooloud from 'tooloud';
 
-or 
+// Optionally destructure
+// const { Perlin, Simplex } = tooloud;
+```
 
+or
 
 `git clone https://github.com/jackunion/tooloud`
 
@@ -52,77 +56,73 @@ tooloud.Simplex.setSeed(seed);
 tooloud.Worley.setSeed(seed);
 ```
 
-If seed wasn't set:
-
-- ```tooloud.Perlin``` and ```tooloud.Simplex``` will run without any seed
-- ```tooloud.Worley``` will supply the noise function with seed (defaults to 3000)
+If seed wasn't set, all three noise functions will be supplied with seed (defaults to 3000)
 
 Calling ```setSeed()``` without an argument will reset the seed.
 
-**Important:** seeding the noise may increase the execution time.
+**Important:** seeding the noise can increase the execution time.
 
-Each ```tooloud``` object exposes a function that can be used to create another instance of that object. You can pass an optional seed value as an argument:
+Each ```tooloud``` noise object exposes a function that can be used to create another instance of that object. You can pass an optional seed value as an argument:
 
 ```javascript
 var anotherPerlin = tooloud.Perlin.create(seed);
 var anotherSimplex = tooloud.Simplex.create(seed);
 var anotherWorley = tooloud.Worley.create(seed);
-var anotherFractal = tooloud.Fractal.create();
 ```
 
 Each newly created instance exposes two functions: ```instance.noise(x, y, z)``` and ```instance.setSeed(seed)``` (```tooloud.Worley``` instances expose three functions: ```instance.Euclidean(x, y, z)```, ```instance.Manhattan(x, y, z)``` and ```instance.setSeed(seed)```).
 
-**Important:** working with multiple instances may increase the execution time.
+**Important:** working with multiple instances can increase the execution time.
 
 ### Using tooloud with canvas
 
 ```javascript
-var tooloud = require('tooloud'); // omit if tooloud was included via the script tag
+import tooloud from 'tooloud'; // Omit if tooloud was included via the script tag
 
-var canvas = document.getElementById('canvas'),
-    ctx = canvas.getContext('2d'),
-    imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight),
-    data = imageData.data,
-    canvasWidth = 640,
-    canvasHeight = 480;
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+const canvasWidth = 640;
+const canvasHeight = 480;
 
 canvas.width = canvasWidth;
 canvas.height = canvasHeight;
 
-// seed your noise
-// this is optional
+// Seed your noise
+// This is optional
 tooloud.Perlin.setSeed(Math.floor(Math.random() * 10000));
 
-for (var i = 0; i < canvasWidth; i++) {
-    for (var j = 0; j < canvasHeight; j++) {
-        var index = (i + j * canvasWidth) * 4;
+let data = imageData.data;
+for (let i = 0; i < canvasWidth; i++) {
+    for (let j = 0; j < canvasHeight; j++) {
+        const index = (i + j * canvasWidth) * 4;
         
         /*
-        var x, y, z;
+        let x, y, z;
 
         Normalize:
         x = i / canvasWidth;
         y = j / canvasHeight;
         z = 0;
-        // fixing one of the coordinates turns 3D noise into 2D noise
-        // fixing two of the coordinates turns 3D noise into 1D noise
-        // fixed coordinate will serve as a seed, i.e. you'll get different results for different values
+        // Fixing one of the coordinates turns 3D noise into 2D noise
+        // Fixing two of the coordinates turns 3D noise into 1D noise
+        // Fixed coordinate will serve as a seed, i.e. you'll get different results for different values
         
         // Scale:
-        var scale = 10;
+        const scale = 10;
         x = scale * x;
         y = scale * y;
         */
         
         // In one go:
-        var x = 15 * (i / canvasWidth), 
-            y = 5 * (j / canvasHeight),         // You can use different scale values for each coordinate
-            z = 0;
+        const x = 15 * (i / canvasWidth);
+        const y = 5 * (j / canvasHeight);         // You can use different scale values for each coordinate
+        const z = 0;
 
-        var n = tooloud.Perlin.noise(x, y, z),  // calculate noise value at x, y, z
-            r = Math.floor(255 * n),
-            g = Math.floor(255 * n),
-            b = Math.floor(255 * n);
+        const n = tooloud.Perlin.noise(x, y, z);  // Calculate noise value at x, y, z
+        const r = Math.floor(255 * n);
+        const g = Math.floor(255 * n);
+        const b = Math.floor(255 * n);
 
         data[index + 0] = r;            // R
         data[index + 1] = g;            // G
@@ -137,7 +137,7 @@ ctx.putImageData(imageData, 0, 0);
 The naive way of using a noise function would be to set your RGB values using ```context.fillStylle``` and then draw a rectangle at the pixel's coordiantes:
 
 ```javascript
-// loop
+// ...Loop
 context.fillStyle = 'rgba(' + [r,g,b,255].join(',') + ')';
 contex.fillRect(i, j, 1, 1);
 ```
@@ -148,7 +148,7 @@ In case you would like to know more, you can read about [pixel manipulation with
 
 ##### Note on using smaller canvas
 
-Sometimes you find yourself in need of rerunning the same noise function with different input values. In this case, consider scaling your canvas down for a faster performance until the desired output is found.
+If you need to rerun the same noise function with different input values, consider scaling your canvas down for a faster performance until the desired output is found.
 
 ![](/examples/_scaling/3.png) ![](/examples/_scaling/2.png) ![](/examples/_scaling/1.png)
 
@@ -159,10 +159,10 @@ Instead of returning a certain value, ```tooloud.Worley``` returns an array cont
 To use ```tooloud.Worley``` with canvas you just need to slightly change the way you calculate your RGB values:
 
 ```javascript
-var n = tooloud.Worley.Euclidean(x, y, z);
+const n = tooloud.Worley.Euclidean(x, y, z);
 
 // n is an array containing three numbers
-// using indexes from 0 to 2 you can access one of them
+// Using indexes from 0 to 2 you can access one of them
 
 data[index + 0] = Math.floor(255 * n[0]);  // R
 data[index + 1] = Math.floor(255 * n[0]);  // G
@@ -187,13 +187,13 @@ See [Worley noise examples](/examples/Worley) for code and texture samples.
 You can simply pass the desired noise function to your fractal noise like this:
 
 ```javascript
-var n = tooloud.Fractal.noise(x, y, z, octaves, tooloud.Perlin.noise);
+const n = tooloud.Fractal.noise(x, y, z, octaves, tooloud.Perlin.noise);
 ```
 
 The better way to use it would be to define a separate function outside the loop and use it as an argument for ```tooloud.Fractal.noise``` later on. Inside that function you would call the desired noise function, process the output the way you want and return the result:
 
 ```javascript
-// optionally seed the noise
+// Optionally seed the noise
 
 // tooloud.Perlin.setSeed(1234);
 
@@ -201,19 +201,19 @@ The better way to use it would be to define a separate function outside the loop
 
 tooloud.Worley.setSeed(123);
 
-function fractalCallback(x, y, z) {
-    // you can use different noise functions
+const fractalCallback = (x, y, z) => {
+    // You can use different noise functions
 
     // return tooloud.Perlin.noise(x, y, z);
 
     // return (1 + tooloud.Simplex.noise(x, y, z)) / 2;
 
-    var n = tooloud.Worley.Euclidean(x, y, z);
+    const n = tooloud.Worley.Euclidean(x, y, z);
     return n[1] - n[0];
 }
 
-// loop
-var n = tooloud.Fractal.noise(x, y, z, octaves, fractalCallback);
+// ...Loop
+const n = tooloud.Fractal.noise(x, y, z, octaves, fractalCallback);
 data[index + 0] = Math.floor(255 * n);      // R
 data[index + 1] = Math.floor(255 * n);      // G
 data[index + 2] = Math.floor(255 * n);      // B
