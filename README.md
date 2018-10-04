@@ -65,9 +65,9 @@ Calling ```setSeed()``` without an argument will reset the seed.
 Each ```tooloud``` noise object exposes a function that can be used to create another instance of that object. You can pass an optional seed value as an argument:
 
 ```javascript
-var anotherPerlin = tooloud.Perlin.create(seed);
-var anotherSimplex = tooloud.Simplex.create(seed);
-var anotherWorley = tooloud.Worley.create(seed);
+const anotherPerlin = tooloud.Perlin.create(seed);
+const anotherSimplex = tooloud.Simplex.create(seed);
+const anotherWorley = tooloud.Worley.create(seed);
 ```
 
 Each newly created instance exposes two functions: ```instance.noise(x, y, z)``` and ```instance.setSeed(seed)``` (```tooloud.Worley``` instances expose three functions: ```instance.Euclidean(x, y, z)```, ```instance.Manhattan(x, y, z)``` and ```instance.setSeed(seed)```).
