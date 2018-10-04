@@ -1,9 +1,13 @@
+const path = require('path');
+
 module.exports = {
-    entry: './index.js',
+    entry: './src/index.js',
+    mode: 'production',
     output: {
-      libraryTarget: "umd",
-      library: "tooloud",
-      path: './dist',
-      filename: 'tooloud.js'
+        filename: 'tooloud.min.js',
+        library: 'tooloud',
+        libraryExport: 'default',
+        libraryTarget: 'umd',
+        path: path.resolve(__dirname, 'dist')
     }
 };

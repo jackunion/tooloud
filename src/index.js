@@ -4,27 +4,26 @@
     Worley noise implementation taken from https://aftbit.com/cell-noise-2/
 */
 
-var Perlin = require('./Perlin'),
-    Simplex = require('./Simplex'),
-    Worley = require('./Worley'),
-    Fractal = require('./Fractal');
+import Perlin from './Perlin';
+import Simplex from './Simplex';
+import Worley from './Worley';
+import Fractal from './Fractal';
 
-var perlin = new Perlin(),
-    simplex = new Simplex(),
-    worley = new Worley(),
-    fractal = new Fractal();
+const perlin = new Perlin();
+const simplex = new Simplex();
+const worley = new Worley();
 
-module.exports = {
+export default {
     Perlin: {
         noise: perlin.noise,
         setSeed: perlin.setSeed,
-        create: function(seed) { return new Perlin(seed) }
+        create: function(seed) { return new P(seed) }
     },
 
     Simplex: {
         noise: simplex.noise,
         setSeed: simplex.setSeed,
-        create: function(seed) { return new Simplex(seed) }
+        create: function(seed) { return new S(seed) }
     },
 
     Worley: {
@@ -35,7 +34,6 @@ module.exports = {
     },
 
     Fractal: {
-        noise: fractal.noise,
-        create: function() { return new Fractal() }
+        noise: Fractal.noise
     }
 }

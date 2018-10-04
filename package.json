@@ -4,12 +4,8 @@
   "description": "Collection of noise functions written in JavaScript",
   "main": "index.js",
   "dependencies": {},
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "webpack": "^1.12.14"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -27,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/jackunion/tooloud/issues"
   },
-  "homepage": "https://github.com/jackunion/tooloud#readme"
+  "homepage": "https://github.com/jackunion/tooloud#readme",
+  "devDependencies": {
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
 }

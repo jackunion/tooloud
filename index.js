@@ -1,1 +1,3 @@
-module.exports = require('./lib/tooloud');
+import tooloud from './src';
+
+export default tooloud;
