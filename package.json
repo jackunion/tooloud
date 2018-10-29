@@ -1,6 +1,6 @@
 {
   "name": "tooloud",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Collection of noise functions written in JavaScript",
   "main": "index.js",
   "dependencies": {},
