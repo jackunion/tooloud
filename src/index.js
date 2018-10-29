@@ -17,20 +17,20 @@ export default {
     Perlin: {
         noise: perlin.noise,
         setSeed: perlin.setSeed,
-        create: function(seed) { return new P(seed) }
+        create: seed => new Perlin(seed)
     },
 
     Simplex: {
         noise: simplex.noise,
         setSeed: simplex.setSeed,
-        create: function(seed) { return new S(seed) }
+        create: seed => new Simplex(seed)
     },
 
     Worley: {
         Euclidean: worley.Euclidean,
         Manhattan: worley.Manhattan,
         setSeed: worley.setSeed,
-        create: function(seed) { return new Worley(seed) }
+        create: seed => new Worley(seed)
     },
 
     Fractal: {
