@@ -2,7 +2,7 @@
   "name": "tooloud",
   "version": "2.0.4",
   "description": "Collection of noise functions written in JavaScript",
-  "main": "index.js",
+  "main": "dist/tooloud.min.js",
   "dependencies": {},
   "scripts": {
     "build": "webpack"
