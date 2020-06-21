@@ -134,7 +134,7 @@ for (let i = 0; i < canvasWidth; i++) {
 ctx.putImageData(imageData, 0, 0);
 ```
 
-The naive way of using a noise function would be to set your RGB values using ```context.fillStylle``` and then draw a rectangle at the pixel's coordiantes:
+The naive way of using a noise function would be to set your RGB values using ```context.fillStyle``` and then draw a rectangle at the pixel's coordiantes:
 
 ```javascript
 // ...Loop
